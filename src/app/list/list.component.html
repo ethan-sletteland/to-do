@@ -1,0 +1,87 @@
+<h2>
+  Welcome {{ user?.name }}!
+  <button mat-button mat-raised-button color="warn" (click)="logout()">
+    logout
+  </button>
+</h2>
+
+<h2>New ToDo</h2>
+<form class="example-form">
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <input
+      matInput
+      placeholder="Enter description"
+      [(ngModel)]="description"
+      name="description"
+      required
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Due date</mat-label>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="due" name="due" />
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <label for="priority">Priority</label>
+  <input type="checkbox" [(ngModel)]="priority" name="priority" />
+
+  <button mat-button mat-raised-button color="primary" (click)="onSubmit()">
+    Submit
+  </button>
+</form>
+
+<h2>My ToDos</h2>
+<div>
+  server: <input type="search" name="search" [(ngModel)]="searchTerm" />
+  <button mat-button mat-raised-button color="primary" (click)="search()">
+    search
+  </button>
+  <button
+    mat-button
+    mat-raised-button
+    color="warn"
+    (click)="search(true)"
+    [disabled]="!searchTerm"
+  >
+    clear
+  </button>
+</div>
+<div>
+  client side:
+  <button mat-button mat-raised-button color="primary" (click)="sortDate()">
+    sort by date due
+  </button>
+  <button mat-button mat-raised-button color="primary" (click)="sortPriority()">
+    sort by priority
+  </button>
+</div>
+<div *ngIf="!todos.length">None yet!</div>
+<ul>
+  <li *ngFor="let todo of todos">
+    <span>{{ todo.description }}</span>
+    <span>{{ todo.due | date }}</span>
+    <span
+      ><mat-icon
+        *ngIf="todo.priority"
+        aria-hidden="false"
+        aria-label="priority"
+        fontIcon="star"
+        class="gold-icon"
+      ></mat-icon
+    ></span>
+    <span
+      ><button
+        (click)="delete(todo.id)"
+        mat-fab
+        color="warn"
+        aria-label="delete todo"
+      >
+        <mat-icon>delete</mat-icon>
+      </button></span
+    >
+  </li>
+</ul>

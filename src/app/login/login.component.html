@@ -1,0 +1,29 @@
+<h2>What's your name?</h2>
+<form class="example-form">
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input
+      matInput
+      placeholder="Enter your name"
+      [(ngModel)]="name"
+      name="name"
+      required
+    />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input
+      matInput
+      type="email"
+      placeholder="Enter your email"
+      [(ngModel)]="email"
+      name="email"
+      required
+    />
+  </mat-form-field>
+
+  <button mat-button mat-raised-button color="primary" (click)="onSubmit()">
+    Submit
+  </button>
+</form>

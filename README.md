@@ -1,27 +1,40 @@
-# ScootTodo
+# Todo App
+
+## Tools used
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
+Express and Prisma make up the backend, Material UI for some widgets.
 
-## Development server
+The Angular CLI did heavy lifting in pushing out frontend boilerplate, and I used the Bing chat AI to scaffold API endpoints and client service methods (it was a real time saver, but boy it is not ready for primetime).
+
+Autoformatting with ESLint and Prettier, development in VSCode and Firefox.
+
+## Running servers
+
+You will need [Node](https://nodejs.org/en) and the [Angular CLI](https://github.com/angular/angular-cli) to run this project.
+
+Please run the obligatory `npm i`
+
+The Node/Prisma server is launched with `node --watch server.ts`, running at `http://localhost:3000/`
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+I would have really liked to have added a dockerfile to make launching this a little less dependency laden. Appologies, if I get time tomorrow I'll make a branch and we can agree it doesn't count toward the project, it's just quality of life!
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Notes
 
-## Build
+I spent time adding a user login interface for multi-tennency. Good call in terms of time use? Unsure, just didn't feel right not to.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+I made the description filter server side and sorting client side. I started to build functionality into the todos API to accomodate sorting but ran out of time. Shucks.
 
-## Running unit tests
+I wrote this README after the two hours had elapsed.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+I did not get quite as far as I would have liked:
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Integrating Material UI
+- Adding update to todo listings (missing frontend)
+- I made `todo.priority` a boolean, I would have prefered multiple levels but couldn't afford the complexity
+- The login is pretty janky! That was extra, please don't hold it against me!
+- Sorts aren't reversible (ascending/descending). That should have gotten in.
+- Typing is not representative of my standards
+- Tests ¯\_(ツ)\_/¯

@@ -1,0 +1,23 @@
+h2 {
+  button {
+    float: inline-end;
+  }
+}
+
+ul {
+  li {
+    list-style: none;
+    padding: 10px;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+  }
+}
+
+button {
+  margin: 5px;
+}
+
+.gold-icon {
+  color: gold;
+}
